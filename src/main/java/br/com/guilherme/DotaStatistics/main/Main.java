@@ -6,10 +6,11 @@ import br.com.guilherme.DotaStatistics.model.Profile;
 import br.com.guilherme.DotaStatistics.model.ProfileStats;
 import br.com.guilherme.DotaStatistics.service.ApiClient;
 import br.com.guilherme.DotaStatistics.service.ConvertData;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Stream;
 
 public class Main {
     private final ApiClient apiClient = new ApiClient();
@@ -18,7 +19,7 @@ public class Main {
 
     private String idUser = "";
 
-    public void showMenu() {
+    public void showMenu() throws IOException {
         var menu = """
                 *** OPTIONS ***
                 1. Get all heroes
@@ -44,9 +45,6 @@ public class Main {
                     idUser = scanner.nextLine();
                     String profileJson = apiClient.getData(ApiConstant.BASE_URL + ApiConstant.PLAYERS + "/" + idUser);
                     Profile data = convertData.getData(profileJson, Profile.class);
-                    if (idUser.equals("166391096")) {
-                        data.user().setDescription("Guilherme");
-                    }
                     System.out.println(data);
                     break;
                 case 3:

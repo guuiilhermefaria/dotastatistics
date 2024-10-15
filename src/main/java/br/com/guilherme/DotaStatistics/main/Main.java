@@ -6,7 +6,6 @@ import br.com.guilherme.DotaStatistics.model.Profile;
 import br.com.guilherme.DotaStatistics.model.ProfileStats;
 import br.com.guilherme.DotaStatistics.service.ApiClient;
 import br.com.guilherme.DotaStatistics.service.ConvertData;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 import java.util.List;
